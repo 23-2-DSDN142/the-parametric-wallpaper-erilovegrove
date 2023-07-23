@@ -1,5 +1,5 @@
 //your parameter variables go here!
-let rect_width  = 20;
+let rect_width  = 30;
 let rect_height = 20;
 
 
