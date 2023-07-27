@@ -6,7 +6,7 @@ let rect_height = 20;
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+  pWallpaper.show_guide(true); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
@@ -16,21 +16,18 @@ function setup_wallpaper(pWallpaper) {
 
 function wallpaper_background() {
   background(245, 243, 230); //beige
-  strokeWeight (0);
+  //drawFish(100, 100, 50);
 }
 
-function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  rect(40 ,40, rect_width, rect_height);
- 
-  fill(95, 153, 123); // Green
-  ellipse(100, 100, 200, 200); // draws a circle
+function drawFish () { //(x, y, size)  { // do not rename this function. Treat this similarly to a Draw function
+  
+    // Body
+    //line(x - size / 2, y, x + size / 2, y);
+    // Tail
+    //line(x + size / 2, y, x + size, y - size / 2);
+    //line(x + size / 2, y, x + size, y + size / 2);
+    // Eye
+    //ellipse(x - size / 4, y, size / 8);
 
-  fill(245, 243, 230); // Beige
-  ellipse(200, 200, 200, 200);
-  arc(0, 200, 200, 200, 270, 360); // Corrected angles in radians
-
-  fill(237, 90, 40); // Orange
-  ellipse(200, 200, 10, 10);
-  ellipse(0, 200, 10, 10);
   
 }
