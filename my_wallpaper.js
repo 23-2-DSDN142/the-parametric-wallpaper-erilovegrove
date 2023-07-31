@@ -15,42 +15,62 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  background(245, 243, 230); //beige
-  strokeWeight (1);
+  background(215, 227, 245); //lightblue
+  strokeWeight (0);
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   
+      var eyesize = 20;
+      var pupilsize = eyesize/2;
+      var back = 40;
+      var tummy = back + 50;
+      var neck = back + 30;
+      var nose = back + 20;
+      var eyeplacement = back + 10;
+      var bottomfinpoint = back + 50;
+      var bottomfintop = back + 20;
+      var toppoint = back - 20;
+      var tailbottom = back + 50;
+
+      fill (0);
       beginShape();
-      vertex(10, 10);
-      vertex(40, 10);
-      vertex(40, 40);
-      vertex(10, 30);
+      vertex(10, back);
+      vertex(40, back);
+      vertex(40, neck);
+      vertex(10, nose);
       endShape(CLOSE); //fishhead
 
-      ellipse (30, 20, 10);
-      ellipse (30, 20, 5);//fish eye
+      fill (255,255,255);
+      ellipse (30, eyeplacement, eyesize);
 
+      fill (66, 102, 161);
+      ellipse (30, eyeplacement, pupilsize);//fish eye
+
+      fill (0);
       beginShape();
-      vertex(45, 10);
-      vertex(140, 10);
-      vertex(140, 60);
-      vertex(45, 40);
+      vertex(45, back);
+      vertex(140, back);
+      vertex(140, tummy);
+      vertex(45, neck);
       endShape(CLOSE); //body
 
       beginShape();
-      vertex(145, 10);
-      vertex(165, 10);
-      vertex(165, 35);
-      vertex (145, 60);
+      vertex(145, back);
+      vertex(165, back);
+      vertex (145, tummy);
       endShape(CLOSE); //butt
 
-      triangle (170, 10, 190, 10, 200, 50);//tail
-      triangle (170, 10, 200, 10, 220, 30); 
+      triangle (165, back, 190, back, 220, toppoint);//tail
+      triangle (165, back, 190, back, 220, tailbottom); 
 
-      triangle (70, 10, 100, 0, 100, 10); //top fin
-      triangle (50, 40, 70, 60, 70, 40);//bottom fin
-      triangle (145, 10, 155, 0, 155, 10) //buttfin
+      triangle (70, back, 100, toppoint, 100, back); //top fin
+
+      fill (66, 102, 161);
+      triangle (50, bottomfintop, 70, bottomfinpoint, 70, bottomfintop);//bottom fin
+      
+      fill (0);
+      triangle (145, back, 155, toppoint, 155, back) //buttfin
 
 
       
