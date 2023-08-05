@@ -1,7 +1,10 @@
 //your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
 
+  var eyesize = 15;
+  var pupilsize = eyesize/2;
+  var eyeY = 90;
+  var neckX = 80;
+  var backY = 80;
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -21,66 +24,68 @@ function wallpaper_background() {
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   
-      var eyesize = 20;
-      var pupilsize = eyesize/2;
-      var back = 40;
-      var tummy = back + 50;
-      var neck = back + 30;
-      var nose = back + 20;
-      var eyeplacement = back + 10;
-      var bottomfinpoint = back + 50;
-      var bottomfintop = back + 20;
-      var toppoint = back - 20;
-      var tailbottom = back + 50;
+  
+  DrawHead (neckX, backY);
+  DrawBody (neckX, backY);
+  DrawButt (neckX, backY);
+  DrawTail (neckX, backY);
+  DrawFins (neckX, backY);
+  DrawEye (70, eyeY);
+  
+}
 
-      fill (0);
-      beginShape();
-      vertex(10, back);
-      vertex(40, back);
-      vertex(40, neck);
-      vertex(10, nose);
-      endShape(CLOSE); //fishhead
+function DrawEye (x, y) {
+  
+  fill (255,255,255);
+  ellipse (x, y, eyesize); //fishpupil
 
-      fill (255,255,255);
-      ellipse (30, eyeplacement, eyesize);
+  fill (66, 102, 161);
+  ellipse (x, y, pupilsize);//fish eye
+}
 
-      fill (66, 102, 161);
-      ellipse (30, eyeplacement, pupilsize);//fish eye
+function DrawHead (x,y) {
+  fill (0);
+  beginShape();
+  vertex(x - 30, y);
+  vertex(x, y);
+  vertex(x, y+30);
+  vertex(x - 30, y+20);
+  endShape(CLOSE); //fishhead
+}
 
-      fill (0);
-      beginShape();
-      vertex(45, back);
-      vertex(140, back);
-      vertex(140, tummy);
-      vertex(45, neck);
-      endShape(CLOSE); //body
+function DrawBody (x, y) {
 
-      beginShape();
-      vertex(145, back);
-      vertex(165, back);
-      vertex (145, tummy);
-      endShape(CLOSE); //butt
+  fill (0);
+  beginShape();
+  vertex(x + 5, y);
+  vertex(x + 100, y);
+  vertex(x + 100, y + 50);
+  vertex(x + 5, y + 30);
+  endShape(CLOSE); //body
+}
 
-      triangle (165, back, 190, back, 220, toppoint);//tail
-      triangle (165, back, 190, back, 220, tailbottom); 
-
-      triangle (70, back, 100, toppoint, 100, back); //top fin
-
-      fill (66, 102, 161);
-      triangle (50, bottomfintop, 70, bottomfinpoint, 70, bottomfintop);//bottom fin
-      
-      fill (0);
-      triangle (145, back, 155, toppoint, 155, back) //buttfin
-
-
-      
-       
-      
-
-    
-
-
-     
+function DrawButt (x, y) {
+  beginShape();
+  vertex(x + 105, y);
+  vertex(x + 125, y);
+  vertex (x + 105, y+50);
+  endShape(CLOSE); //butt
 
 }
+
+function DrawTail (x, y) {
+  triangle (x + 125, y, x + 150, y, x + 180, y - 20);//tail
+  triangle (x + 125, y, x + 150, y, x + 180, y + 50); 
+}
+
+function DrawFins (x, y) {
+  triangle (x + 30, y, x + 60, y-20, x + 60, y); //top fin
+  
+  fill (66, 102, 161);
+  triangle (x + 10, y + 20, x + 30, y + 50, x + 30, y + 20);//bottom fin
+
+  fill (0);
+  triangle (x + 105, y, x + 115, y - 20, x + 115, y) //buttfin
+}
+
 
