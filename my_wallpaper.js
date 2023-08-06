@@ -1,15 +1,18 @@
 //your parameter variables go here!
 
   var eyesize = 15;
-  var pupilsize = eyesize/2;
+  var pupilsize = eyesize/1.8;
   var eyeY = 90;
   var neckX = 80;
   var backY = 80;
+  var linewidth = 2;
+  var eyereflection = pupilsize/1.8
+  //var eyecolour = color(255, 38, 38);
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+  pWallpaper.show_guide(true); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 300;
@@ -20,6 +23,8 @@ function setup_wallpaper(pWallpaper) {
 function wallpaper_background() {
   background(215, 227, 245); //lightblue
   strokeWeight (0);
+
+  
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
@@ -32,15 +37,33 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   DrawFins (neckX, backY);
   DrawEye (70, eyeY);
   
+  strokeWeight (10);
+  strokeCap (SQUARE);
+  stroke (105, 145, 114);
+  noFill ();
+  bezier(20, 90, 20, 60, 70, 30, 70, 0);
+  bezier (20, 90, 20, 120, 70, 150, 70, 180);
+  
 }
+
 
 function DrawEye (x, y) {
   
+  var eyecolour = color(0);
+
+  if (eyesize > 20) {
+    eyesize= min(20, eyesize);
+    pupilsize= min(10, eyesize);
+  }
+
   fill (255,255,255);
   ellipse (x, y, eyesize); //fishpupil
 
-  fill (66, 102, 161);
+  fill (eyecolour);
   ellipse (x, y, pupilsize);//fish eye
+
+  fill (255, 255, 255);
+  ellipse (x + 1.2, y - 1.2, eyereflection);
 }
 
 function DrawHead (x,y) {
