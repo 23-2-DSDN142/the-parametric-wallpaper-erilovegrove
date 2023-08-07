@@ -1,43 +1,43 @@
 //your parameter variables go here!
 
-  var eyesize = 15;
+  var eyesize = 12; //15
   var pupilsize = eyesize/1.8;
-  var eyeY = 90;
+  var eyeY = 126; //90
+  var eyex = 72; //70
   var neckX = 80; //80
-  var backY = 80; //80
+  var backY = 120; //80
   var eyereflection = pupilsize/1.8;
   var seaweedx = 20;
   var seaweedy = 90;
-  var seaweed1x = 20; //changes x position of first seaweed
-  var seaweed1y = 40; //changes y position of first seaweed
-  var seaweed2x = 100; //changes x position of second seaweed etc.
-  var seaweed2y = 100; //100
-  var seaweed3x = 190; //190
-  var seaweed3y = 60 //60
-  var necky = 30; //changes y position of the neck //30
-  var nosex = 30; //changes x position of the nose //30
-  var nosey = 20; //changes y position of the nose //20
-  var bellyy = 50; //changes y position of the belly //50
+  var seaweed1x = 80; //changes x position of first seaweed //20
+  var seaweed1y = 40; //changes y position of first seaweed //40
+  var seaweed2x = 90; //changes x position of second seaweed etc. //100
+  var seaweed2y = 40; //100
+  var seaweed3x = 100; //190
+  var seaweed3y = 40 //60
+  var necky = 20; //changes y position of the neck //30
+  var nosex = 20; //changes x position of the nose //30
+  var nosey = 10; //changes y position of the nose //20
+  var bellyy = 40; //changes y position of the belly //50
   var buttx = 100; //100
   var buttfinx = 115; //115
-  var buttfiny = 20; //20
+  var buttfiny = 50; //20
   var topfinleftx = 30; //changes x position of the left point of the triangle //30
-  var topfinrightx = 70; //changes x position of the two right points of the triangle //60
+  var topfinrightx = 60; //changes x position of the two right points of the triangle //60
   var topfiny = 20; //changes y position of the top point of the fin //20
   var bottomfinleftx = 10; //10
-  var bottomfinrightx = 30; //30
-  var bottomfindowny = 50; //50
+  var bottomfinrightx = 50; //30
+  var bottomfindowny = 90; //50
   var bottomfintopy = 20; //20
   var bubblex = 40; //40
-  var bubbley = 10; //10
-  var bubblesize = 50; //50
-  let bubbleswitch = false;
+  var bubbley = 40; //10
+  var bubblesize = 70; //50
+  let bubbleswitch = true; // turns bubbles on and off and heart on and off
   var heart = 40;
-  //var eyecolour = color(255, 38, 38);
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.resolution(NINE_LANDSCAPE);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -63,7 +63,7 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   DrawButt (neckX, backY);
   DrawTail (neckX, backY);
   DrawFins (neckX, backY);
-  DrawEye (70, eyeY);
+  DrawEye (eyex, eyeY);
   DrawBubbles (bubblex, bubbley, bubblesize);
   DrawBubbles (bubblex -30, bubbley + 55, bubblesize*(2/5)); 
   DrawBubbles (bubblex - 5, bubbley + 75, bubblesize*(1/5));
